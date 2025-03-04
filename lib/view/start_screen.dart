@@ -18,8 +18,6 @@ class _StartScreenState extends State<StartScreen> {
   void initState() {
 WidgetsBinding.instance.addPostFrameCallback((_)async{
 
-
-  await Future.delayed(Duration(seconds: 10));
   NavigatorApp.pushAndRemoveUntil(HomeMoviesList());
   
 });
@@ -51,7 +49,7 @@ WidgetsBinding.instance.addPostFrameCallback((_)async{
                 "NABEEH MOVIES",
 
                 textAlign: TextAlign.center,
-                style: CustomTextStyle().heading1L.copyWith(
+                style: CustomTextStyle().rubik.copyWith(
                     color: Colors.black, fontSize: 22.sp, height: 1.2.h),
               ),
               SizedBox(height: 40.h),

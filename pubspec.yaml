@@ -20,6 +20,7 @@ dependencies:
   responsive_framework: ^1.5.1
   flutter_launcher_icons: ^0.14.3
   rename_app: ^1.6.2
+  flutter_svg: ^2.0.17
 
 dev_dependencies:
   flutter_test:

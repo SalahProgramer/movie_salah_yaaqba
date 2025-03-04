@@ -28,48 +28,39 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Color(0xFF121212), Color(0xFF1E1E1E)], // Dark gradient
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
+    return AppBar(
+
+      scrolledUnderElevation: 0,
+      elevation: 0,
+      shadowColor: widget.shadowColor ?? Colors.black87,
+
+      backgroundColor: Colors.transparent,
+      centerTitle: true,
+      title: Padding(
+        padding: EdgeInsets.only(top: 8.h),
+        child: Text(
+          widget.title,
+          style: CustomTextStyle().rubik.copyWith(
+              fontSize: 18.sp,
+              color: widget.colorWidgets ?? Colors.black,
+              fontWeight: FontWeight.bold),
         ),
       ),
-      child: AppBar(
-
-        scrolledUnderElevation: 0,
-        elevation: 0,
-        shadowColor: widget.shadowColor ?? Colors.black87,
-
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        title: Padding(
-          padding: EdgeInsets.only(top: 8.h),
-          child: Text(
-            widget.title,
-            style: CustomTextStyle().heading1L.copyWith(
-                fontSize: 18.sp,
-                color: widget.colorWidgets ?? Colors.black,
-                fontWeight: FontWeight.bold),
-          ),
-        ),
-        // leading: Padding(
-        //   padding: EdgeInsets.only(top: 8.h),
-        //   child: Align(
-        //     alignment: Alignment.center,
-        //     child: CustomTextButton(
-        //         text: widget.textButton,
-        //         textStyle: CustomTextStyle().heading1L.copyWith(
-        //             fontSize: 14.sp,
-        //             color: widget.colorWidgets ?? Colors.black,
-        //             fontWeight: FontWeight.bold),
-        //         onPressed: widget.onPressed),
-        //   ),
-        // ),
-        actions: widget.actions ??
-            [],
-      ),
+      // leading: Padding(
+      //   padding: EdgeInsets.only(top: 8.h),
+      //   child: Align(
+      //     alignment: Alignment.center,
+      //     child: CustomTextButton(
+      //         text: widget.textButton,
+      //         textStyle: CustomTextStyle().heading1L.copyWith(
+      //             fontSize: 14.sp,
+      //             color: widget.colorWidgets ?? Colors.black,
+      //             fontWeight: FontWeight.bold),
+      //         onPressed: widget.onPressed),
+      //   ),
+      // ),
+      actions: widget.actions ??
+          [],
     );
   }
 }

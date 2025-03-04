@@ -1,5 +1,8 @@
 import "package:provider/single_child_widget.dart";
 
-List<SingleChildWidget> providers = [
+import "../controller/search_controller.dart";
+import "package:provider/provider.dart";
 
+List<SingleChildWidget> providers = [
+  ChangeNotifierProvider(create: (_) => PageSearchController()),
 ];
