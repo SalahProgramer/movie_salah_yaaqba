@@ -52,6 +52,7 @@ class _CustomButtonState extends State<CustomButton> {
         style: ElevatedButton.styleFrom(
             padding: widget.padding ?? EdgeInsets.zero,
             alignment: Alignment.center,
+
             shape: RoundedRectangleBorder(
                 side: widget.borderSide ?? BorderSide.none,
                 borderRadius:

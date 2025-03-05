@@ -6,6 +6,7 @@ import '../../utilities/style/text_style.dart';
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final Color? shadowColor;
   final Color? colorWidgets;
+  final Color? backgroundColor;
   final String title;
   final String textLeading;
   final List<Widget>? actions;
@@ -19,7 +20,8 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
     required this.title,
     required this.textLeading,
     this.actions,
-  }) : preferredSize = Size.fromHeight(42.h);
+    this.backgroundColor,
+  }) : preferredSize = Size.fromHeight(50.h);
 
   @override
   State<CustomAppBar> createState() => _CustomAppBarState();
@@ -29,21 +31,28 @@ class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-
       scrolledUnderElevation: 0,
       elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.circular(15.r),
+          bottomLeft: Radius.circular(15.r),
+
+        ),
+      ),
       shadowColor: widget.shadowColor ?? Colors.black87,
 
-      backgroundColor: Colors.transparent,
+      backgroundColor: widget.backgroundColor ?? Colors.transparent,
       centerTitle: true,
       title: Padding(
         padding: EdgeInsets.only(top: 8.h),
         child: Text(
           widget.title,
           style: CustomTextStyle().rubik.copyWith(
-              fontSize: 18.sp,
-              color: widget.colorWidgets ?? Colors.black,
-              fontWeight: FontWeight.bold),
+            fontSize: 18.sp,
+            color: widget.colorWidgets ?? Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       // leading: Padding(
@@ -59,8 +68,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
       //         onPressed: widget.onPressed),
       //   ),
       // ),
-      actions: widget.actions ??
-          [],
+      actions: widget.actions ?? [],
     );
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:movie_salah_yaaqba/utilities/global/app_global.dart';
-import 'package:movie_salah_yaaqba/view/home/home_movies_list.dart';
+import 'package:movie_salah_yaaqba/view/home/search_movies.dart';
 import '../utilities/style/colors.dart';
 import '../utilities/style/text_style.dart';
 class StartScreen extends StatefulWidget {
