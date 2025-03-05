@@ -10,6 +10,7 @@ class Animations extends PageRouteBuilder {
             reverseTransitionDuration: const Duration(milliseconds: 500),
             transitionsBuilder: (context, animation1, animationTwo, child) {
               // var begin = const Offset(0, 1);
+
               var begin = const Offset(-1, 0);
               var end = const Offset(0, 0);
 
