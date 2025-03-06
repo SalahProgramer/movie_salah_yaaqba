@@ -7,6 +7,7 @@ import '../../controller/page_movie_details_controller.dart';
 import '../text/custom_text.dart';
 
 class AnimatedWidgetMovie extends StatelessWidget {
+
   final String title;
   final Color? color;
   final double? fontSize;
