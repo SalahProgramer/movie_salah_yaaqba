@@ -64,14 +64,17 @@ class _WidgetMovieItemState extends State<WidgetMovieItem> {
           child: Column(
             children: [
               Expanded(
-                child: CustomImageMovieItem(
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(5.r),
-                    topLeft: Radius.circular(5.r),
+                child: Hero(
+                  tag: "${widget.movieItem.imdbID}",
+                  child: CustomImageMovieItem(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(5.r),
+                      topLeft: Radius.circular(5.r),
+                    ),
+                    borderCircle: 5.r,
+                    boxFit: BoxFit.fill,
+                    imageUrl: widget.movieItem.poster ?? "",
                   ),
-                  borderCircle: 5.r,
-                  boxFit: BoxFit.fill,
-                  imageUrl: widget.movieItem.poster ?? "",
                 ),
               ),
               SizedBox(height: 5.h),
