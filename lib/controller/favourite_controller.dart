@@ -15,6 +15,8 @@ class FavouriteController extends ChangeNotifier {
     required String? type,
     required String? poster,
   }) async {
+    title = title!.replaceAll("'s", " ");
+
     int response = await sqlDb.insertData(
       sql:
           "INSERT INTO 'favouriteMovie' ('imdbID','Title','Year','Type','Poster') VALUES ('$imdbID','$title','$year','$type','$poster')",

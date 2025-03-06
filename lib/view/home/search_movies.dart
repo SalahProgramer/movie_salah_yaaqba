@@ -99,6 +99,26 @@ class _SearchMoviesState extends State<SearchMovies> {
                       child: CustomTextFormField(
                         hintText: 'Search for a movie by title',
 
+                        onFieldSubmitted: (p0) async {
+                          FocusScope.of(context).unfocus();
+                          await Future.delayed(
+                            Duration(milliseconds: 200),
+                          );
+                          if (formKey.currentState!.validate()) {
+                            // dialogWaiting();
+                            await pageSearchController.clear();
+                            NavigatorApp.pushAnimation(
+                              MoviesList(),
+                              Offset(-1, 0),
+                            );
+                          } else {}
+
+
+
+
+
+                        },
+
                         inputType: TextInputType.text,
                         controller: pageSearchController.textSearch,
                         controlPage: pageSearchController,

@@ -23,6 +23,7 @@ class CustomTextFormField extends StatefulWidget {
   final int? maxLength;
   final void Function()? onTap;
   final void Function(String)? onChanged;
+  final void Function(String)? onFieldSubmitted;
   final FocusNode? focusNode;
   // final FocusNode? focusNode;
 
@@ -49,7 +50,7 @@ class CustomTextFormField extends StatefulWidget {
     this.onChanged,
     this.suffixIcon,
     this.maxLength,
-    this.focusNode,
+    this.focusNode, this.onFieldSubmitted,
 
     // this.focusNode
   });
@@ -67,6 +68,7 @@ class _CustomTextFieldState extends State<CustomTextFormField> {
       selectionControls: DesktopTextSelectionControls(),
       maxLength: widget.maxLength,
       onChanged: widget.onChanged,
+      onFieldSubmitted: widget.onFieldSubmitted,
       onTap: (widget.hasTap == false) ? null : widget.onTap,
       cursorColor: (widget.hasTap == false) ? Colors.black : Colors.transparent,
       validator: widget.validate,
