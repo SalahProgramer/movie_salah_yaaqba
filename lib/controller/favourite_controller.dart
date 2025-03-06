@@ -12,6 +12,7 @@ class FavouriteController extends ChangeNotifier {
     required String? imdbID,
     required String? title,
     required String? year,
+
     required String? type,
     required String? poster,
   }) async {
