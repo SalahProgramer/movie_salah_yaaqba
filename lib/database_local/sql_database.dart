@@ -15,7 +15,7 @@ class SqlDb {
 
   Future<Database> initialDb() async {
     String databasePath = await getDatabasesPath();
-    String path = join(databasePath, "movieV1.0.db");
+    String path = join(databasePath, "movieV1.1.db");
     Database movieDb = await openDatabase(
       path,
       onCreate: onCreate,

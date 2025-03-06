@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -30,9 +29,7 @@ class _MoviesListState extends State<MoviesList> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       PageSearchController pageSearchController =
           context.read<PageSearchController>();
-      if (kDebugMode) {
-        print("ffffffffffffffffffffffffffffffffffffffff");
-      }
+
       await pageSearchController.getSearch();
 
       scrollController.addListener(() async {
