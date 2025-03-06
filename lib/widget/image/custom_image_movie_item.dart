@@ -42,6 +42,7 @@ class CustomImageMovieItem extends StatelessWidget {
 
     return Center(
       child: InkWell(
+
         onTap: (hasInk == true) ? () {} : null,
         child: ClipRRect(
           borderRadius:

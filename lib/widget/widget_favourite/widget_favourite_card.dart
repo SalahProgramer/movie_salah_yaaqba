@@ -10,9 +10,9 @@ import '../../utilities/global/app_global.dart';
 import '../../utilities/style/colors.dart';
 import '../../utilities/style/text_style.dart';
 import 'package:flutter/cupertino.dart';
-
 import '../../view/movies/movie_description.dart';
 import '../messages/messages.dart';
+
 
 class WidgetFavouriteCard extends StatefulWidget {
   final int index;
@@ -22,6 +22,7 @@ class WidgetFavouriteCard extends StatefulWidget {
     super.key,
     required this.index,
     required this.favouriteItem,
+
   });
 
   @override
