@@ -5,8 +5,6 @@ import '../../utilities/style/colors.dart';
 import '../../utilities/style/text_style.dart';
 
 class CustomText extends StatelessWidget {
-
-
   final String text;
   final double? fontSize;
   final Color? color;
@@ -20,13 +18,11 @@ class CustomText extends StatelessWidget {
         text,
         maxLines: 2,
         style: CustomTextStyle().rubik.copyWith(
-          fontSize: fontSize??19.sp,
+          fontSize: fontSize ?? 19.sp,
           fontWeight: FontWeight.bold,
           overflow: TextOverflow.ellipsis,
 
-
-          color: color??CustomColor.blueColor,
-
+          color: color ?? CustomColor.blueColor,
         ),
         textAlign: TextAlign.center,
       ),

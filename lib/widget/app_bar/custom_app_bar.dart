@@ -59,14 +59,14 @@ class _CustomAppBarState extends State<CustomAppBar> {
       leading:
           (widget.textNameLottie != "")
               ? InkWell(
-            splashColor: Colors.transparent,
-            focusColor: Colors.transparent,
-            hoverColor: Colors.transparent,
-            overlayColor: WidgetStateColor.transparent,
-            highlightColor: Colors.transparent,
-            onTap: () {
-              NavigatorApp.pop();
-            },
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                overlayColor: WidgetStateColor.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () {
+                  NavigatorApp.pop();
+                },
                 child: Padding(
                   padding: EdgeInsets.only(top: 8.h),
                   child: Align(

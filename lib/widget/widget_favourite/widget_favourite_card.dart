@@ -20,7 +20,6 @@ class WidgetFavouriteCard extends StatefulWidget {
     required this.favouriteItem,
   });
 
-
   @override
   State<WidgetFavouriteCard> createState() => _WidgetFavouriteCardState();
 }

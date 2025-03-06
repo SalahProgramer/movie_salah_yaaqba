@@ -9,7 +9,12 @@ class EmptyWidget extends StatelessWidget {
   final String nameIcon;
   final double? fontSize;
 
-  const EmptyWidget({super.key, required this.text, required this.nameIcon, this.fontSize});
+  const EmptyWidget({
+    super.key,
+    required this.text,
+    required this.nameIcon,
+    this.fontSize,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +24,7 @@ class EmptyWidget extends StatelessWidget {
         children: [
           Text(
             style: CustomTextStyle().rubik.copyWith(
-              fontSize: fontSize?? 18.sp,
+              fontSize: fontSize ?? 18.sp,
               height: 1.2.h,
               color: Colors.black,
             ),

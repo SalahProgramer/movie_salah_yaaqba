@@ -61,7 +61,6 @@ class CustomTextFormField extends StatefulWidget {
 class _CustomTextFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
-
     return TextFormField(
       enabled: true,
       clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -76,66 +75,81 @@ class _CustomTextFieldState extends State<CustomTextFormField> {
       textDirection: TextDirection.ltr,
       focusNode: widget.focusNode,
       maxLines: widget.maxLines,
-      style: widget.textStyle?? CustomTextStyle().rubik.copyWith(fontSize: 14.sp,
-      color: Colors.black,
+      style:
+          widget.textStyle ??
+          CustomTextStyle().rubik.copyWith(
+            fontSize: 14.sp,
+            color: Colors.black,
 
-      fontWeight: FontWeight.bold),
-
+            fontWeight: FontWeight.bold,
+          ),
 
       textAlign: widget.textAlign,
       canRequestFocus: (widget.hasFill) ? true : false,
 
       decoration: InputDecoration(
-          hintText: widget.hintText,
-          fillColor: (widget.hasFill)
-              ?  Colors.white70
-              : Colors.transparent,
-          filled: (widget.hasFill) ? true : false,
-          alignLabelWithHint: widget.alignLabelWithHint,
-          hintStyle: widget.hintStyle ??
-              CustomTextStyle()
-                  .rubik
-                  .copyWith(color: Colors.black45, fontSize: 12.sp),
-          label: (widget.label != "")
-              ? Text(
-            widget.label,
-            style: CustomTextStyle()
-                .rubik
-                .copyWith(color: Colors.black, fontSize: 12.sp),
-          )
-              : null,
-          errorMaxLines: 3,
-          border: (widget.hasFocusBorder)
-              ? OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12.r),
-            borderSide: const BorderSide(color: Colors.black, width: 2),
-          )
-              : OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              borderSide: const BorderSide(color: Colors.transparent)),
-          enabledBorder: (widget.hasFocusBorder)
-              ? OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12.r),
-            borderSide:
-            BorderSide(width: 0, color: Colors.blueGrey.shade100),
-          )
-              : OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              borderSide: const BorderSide(color: Colors.transparent)),
-          focusedBorder: (widget.hasFocusBorder)
-              ? OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12.r),
-            borderSide: (widget.hasFocusBorder)
-                ? BorderSide(color: Colors.black, width: 1)
-                : BorderSide(width: 0, color: Colors.blueGrey.shade100),
-          )
-              : OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              borderSide: const BorderSide(color: Colors.transparent)),
-          prefixIcon: widget.prefixIcon,
-
-
-         ),
+        hintText: widget.hintText,
+        fillColor: (widget.hasFill) ? Colors.white70 : Colors.transparent,
+        filled: (widget.hasFill) ? true : false,
+        alignLabelWithHint: widget.alignLabelWithHint,
+        hintStyle:
+            widget.hintStyle ??
+            CustomTextStyle().rubik.copyWith(
+              color: Colors.black45,
+              fontSize: 12.sp,
+            ),
+        label:
+            (widget.label != "")
+                ? Text(
+                  widget.label,
+                  style: CustomTextStyle().rubik.copyWith(
+                    color: Colors.black,
+                    fontSize: 12.sp,
+                  ),
+                )
+                : null,
+        errorMaxLines: 3,
+        border:
+            (widget.hasFocusBorder)
+                ? OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12.r),
+                  borderSide: const BorderSide(color: Colors.black, width: 2),
+                )
+                : OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12.r),
+                  borderSide: const BorderSide(color: Colors.transparent),
+                ),
+        enabledBorder:
+            (widget.hasFocusBorder)
+                ? OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12.r),
+                  borderSide: BorderSide(
+                    width: 0,
+                    color: Colors.blueGrey.shade100,
+                  ),
+                )
+                : OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12.r),
+                  borderSide: const BorderSide(color: Colors.transparent),
+                ),
+        focusedBorder:
+            (widget.hasFocusBorder)
+                ? OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12.r),
+                  borderSide:
+                      (widget.hasFocusBorder)
+                          ? BorderSide(color: Colors.black, width: 1)
+                          : BorderSide(
+                            width: 0,
+                            color: Colors.blueGrey.shade100,
+                          ),
+                )
+                : OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12.r),
+                  borderSide: const BorderSide(color: Colors.transparent),
+                ),
+        prefixIcon: widget.prefixIcon,
+      ),
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:movie_salah_yaaqba/utilities/global/app_global.dart';
 import 'package:movie_salah_yaaqba/view/home/search_movies.dart';
 import '../utilities/style/colors.dart';
 import '../utilities/style/text_style.dart';
+
 class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
 
@@ -13,16 +14,14 @@ class StartScreen extends StatefulWidget {
 }
 
 class _StartScreenState extends State<StartScreen> {
-  
   @override
   void initState() {
-WidgetsBinding.instance.addPostFrameCallback((_)async{
-
-  NavigatorApp.pushAndRemoveUntil(SearchMovies());
-  
-});
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      NavigatorApp.pushAndRemoveUntil(SearchMovies());
+    });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +33,6 @@ WidgetsBinding.instance.addPostFrameCallback((_)async{
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
               Image(
                 image: const AssetImage("assets/images/nabeeh_movie.png"),
                 width: 0.5.sw,
@@ -45,18 +43,17 @@ WidgetsBinding.instance.addPostFrameCallback((_)async{
                 fit: BoxFit.contain,
               ),
               Text(
-
                 "NABEEH MOVIES",
 
                 textAlign: TextAlign.center,
                 style: CustomTextStyle().rubik.copyWith(
-                    color: Colors.black, fontSize: 22.sp, height: 1.2.h),
+                  color: Colors.black,
+                  fontSize: 22.sp,
+                  height: 1.2.h,
+                ),
               ),
               SizedBox(height: 40.h),
-              SpinKitSpinningLines(
-                color: CustomColor.blueColor,
-                size: 30.h,
-              )
+              SpinKitSpinningLines(color: CustomColor.blueColor, size: 30.h),
             ],
           ),
         ),

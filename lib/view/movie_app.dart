@@ -16,43 +16,52 @@ class _MovieAppState extends State<MovieApp> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(360, 690),
-        fontSizeResolver: FontSizeResolvers.height,
-        ensureScreenSize: true,
-        splitScreenMode: true,
-        minTextAdapt: true,
-        enableScaleWH: () => true,
-        enableScaleText: () => true,
-        builder: (_, child) {
-          return
-            MaterialApp(
-              navigatorKey: NavigatorApp.navigatorKey,
-              debugShowCheckedModeBanner: false,
-              builder: (context, child) => Overlay(
+      designSize: const Size(360, 690),
+      fontSizeResolver: FontSizeResolvers.height,
+      ensureScreenSize: true,
+      splitScreenMode: true,
+      minTextAdapt: true,
+      enableScaleWH: () => true,
+      enableScaleText: () => true,
+      builder: (_, child) {
+        return MaterialApp(
+          navigatorKey: NavigatorApp.navigatorKey,
+          debugShowCheckedModeBanner: false,
+          builder:
+              (context, child) => Overlay(
                 initialEntries: [
                   OverlayEntry(
-                      builder: (context) => ResponsiveBreakpoints.builder(
-                        child: child!,
-                        breakpoints: [
-                          const Breakpoint(start: 0, end: 450, name: MOBILE),
-                          const Breakpoint(
-                              start: 451, end: 800, name: TABLET),
-                          const Breakpoint(
-                              start: 801, end: 1920, name: DESKTOP),
-                          const Breakpoint(
-                              start: 1921, end: double.infinity, name: '4K'),
-                        ],
-                      )),
+                    builder:
+                        (context) => ResponsiveBreakpoints.builder(
+                          child: child!,
+                          breakpoints: [
+                            const Breakpoint(start: 0, end: 450, name: MOBILE),
+                            const Breakpoint(
+                              start: 451,
+                              end: 800,
+                              name: TABLET,
+                            ),
+                            const Breakpoint(
+                              start: 801,
+                              end: 1920,
+                              name: DESKTOP,
+                            ),
+                            const Breakpoint(
+                              start: 1921,
+                              end: double.infinity,
+                              name: '4K',
+                            ),
+                          ],
+                        ),
+                  ),
                 ],
               ),
-              title: 'Movies',
+          title: 'Movies',
 
-
-              home: child,
-
-            )
-          ;
-        },
-        child: StartScreen());
+          home: child,
+        );
+      },
+      child: StartScreen(),
+    );
   }
 }

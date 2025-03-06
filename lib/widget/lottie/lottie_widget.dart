@@ -9,20 +9,23 @@ class LottieWidget extends StatelessWidget {
   final bool? animate;
   final BoxFit? boxFit;
 
-  const LottieWidget(
-      {super.key,
-      this.name,
-      this.height,
-      this.width,
-      this.animate = true,
-      this.boxFit});
+  const LottieWidget({
+    super.key,
+    this.name,
+    this.height,
+    this.width,
+    this.animate = true,
+    this.boxFit,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Lottie.asset("assets/lottie/$name",
-        height: height ?? 40.w,
-        width: width ?? 40.w,
-        fit: boxFit ?? BoxFit.cover,
-        animate: animate ?? true);
+    return Lottie.asset(
+      "assets/lottie/$name",
+      height: height ?? 40.w,
+      width: width ?? 40.w,
+      fit: boxFit ?? BoxFit.cover,
+      animate: animate ?? true,
+    );
   }
 }

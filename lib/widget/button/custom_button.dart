@@ -21,71 +21,78 @@ class CustomButton extends StatefulWidget {
   final IconAlignment? iconAlignment;
   final BorderSide? borderSide;
 
-  const CustomButton(
-      {super.key,
-        required this.text,
-        required this.textIcon,
-        required this.onPressed,
-        this.padding,
-        this.hasBackground = false,
-        this.height,
-        this.isLoading = false,
-        this.textStyle,
-        this.elevation,
-        this.backgroundColor,
-        this.colorFilter,
-        this.iconAlignment,
-        this.borderRadius,
-        this.borderSide});
+  const CustomButton({
+    super.key,
+    required this.text,
+    required this.textIcon,
+    required this.onPressed,
+    this.padding,
+    this.hasBackground = false,
+    this.height,
+    this.isLoading = false,
+    this.textStyle,
+    this.elevation,
+    this.backgroundColor,
+    this.colorFilter,
+    this.iconAlignment,
+    this.borderRadius,
+    this.borderSide,
+  });
 
   @override
-  State<CustomButton> createState() =>
-      _CustomButtonState();
+  State<CustomButton> createState() => _CustomButtonState();
 }
 
 class _CustomButtonState extends State<CustomButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
-        iconAlignment: widget.iconAlignment ?? IconAlignment.end,
-        clipBehavior: Clip.none,
-        style: ElevatedButton.styleFrom(
-            padding: widget.padding ?? EdgeInsets.zero,
-            alignment: Alignment.center,
+      iconAlignment: widget.iconAlignment ?? IconAlignment.end,
+      clipBehavior: Clip.none,
+      style: ElevatedButton.styleFrom(
+        padding: widget.padding ?? EdgeInsets.zero,
+        alignment: Alignment.center,
 
-            shape: RoundedRectangleBorder(
-                side: widget.borderSide ?? BorderSide.none,
-                borderRadius:
-                widget.borderRadius ?? BorderRadius.circular(10.r)),
-            shadowColor: Colors.transparent,
-            overlayColor: Colors.transparent,
-            foregroundColor: Colors.black,
-            backgroundColor: (widget.hasBackground)
+        shape: RoundedRectangleBorder(
+          side: widget.borderSide ?? BorderSide.none,
+          borderRadius: widget.borderRadius ?? BorderRadius.circular(10.r),
+        ),
+        shadowColor: Colors.transparent,
+        overlayColor: Colors.transparent,
+        foregroundColor: Colors.black,
+        backgroundColor:
+            (widget.hasBackground)
                 ? widget.backgroundColor ?? Colors.white.withValues(alpha: 0.9)
                 : Colors.transparent,
-            elevation: widget.elevation ?? 0),
-        onPressed: widget.onPressed,
-        icon: (widget.textIcon == "")
-            ? SizedBox()
-            : (widget.isLoading == false)
-            ?  LottieWidget(
-          name: widget.textIcon,
-          width: widget.height ?? 40.w,
-          height: widget.height ?? 40.w,
-        )
-
-            : Padding(
-          padding: EdgeInsets.symmetric(horizontal: 2.w),
-          child: SizedBox(
-            width: 30.w,
-            height: 30.w,
-            child: SpinKitFadingCircle(
+        elevation: widget.elevation ?? 0,
+      ),
+      onPressed: widget.onPressed,
+      icon:
+          (widget.textIcon == "")
+              ? SizedBox()
+              : (widget.isLoading == false)
+              ? LottieWidget(
+                name: widget.textIcon,
+                width: widget.height ?? 40.w,
+                height: widget.height ?? 40.w,
+              )
+              : Padding(
+                padding: EdgeInsets.symmetric(horizontal: 2.w),
+                child: SizedBox(
+                  width: 30.w,
+                  height: 30.w,
+                  child: SpinKitFadingCircle(color: Colors.white, size: 20.h),
+                ),
+              ),
+      label: Text(
+        widget.text,
+        style:
+            widget.textStyle ??
+            CustomTextStyle().rubik.copyWith(
               color: Colors.white,
-              size: 20.h,
+              fontSize: 17.sp,
             ),
-          ),
-        ),
-        label: Text(widget.text,
-            style: widget.textStyle ?? CustomTextStyle().rubik.copyWith(color: Colors.white,fontSize: 17.sp)));
+      ),
+    );
   }
 }

@@ -16,13 +16,14 @@ Future<void> dialogWaiting() {
           children: [
             Text(
               "Waiting",
-              style: CustomTextStyle().rubik.copyWith(color: Colors.white,fontWeight: FontWeight.bold,letterSpacing: 1),
+              style: CustomTextStyle().rubik.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1,
+              ),
             ),
             SizedBox(height: 20.h),
-            SpinKitThreeBounce(
-              color: Colors.white,
-              size: 25.w,
-            ),
+            SpinKitThreeBounce(color: Colors.white, size: 25.w),
           ],
         ),
       );

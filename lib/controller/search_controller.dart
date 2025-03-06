@@ -23,10 +23,12 @@ class PageSearchController extends ChangeNotifier {
     text = changeText.trim();
     notifyListeners();
   }
+
   Future<void> changeIsFavourite(String id, bool newIsFavourite) async {
     isFavourite[id] = newIsFavourite;
     notifyListeners();
   }
+
   Future<void> clear() async {
     movieList = [];
     haveMoreData = true;

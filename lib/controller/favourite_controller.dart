@@ -15,7 +15,6 @@ class FavouriteController extends ChangeNotifier {
     required String? type,
     required String? poster,
   }) async {
-
     int response = await sqlDb.insertData(
       sql:
           "INSERT INTO 'favouriteMovie' ('imdbID','Title','Year','Type','Poster') VALUES ('$imdbID','$title','$year','$type','$poster')",
@@ -39,8 +38,11 @@ class FavouriteController extends ChangeNotifier {
       return item.imdbID == imdbID;
     });
   }
+
   Future<void> getFavouriteMovies() async {
-    List<Map> response = await sqlDb.readData(sql: "SELECT * FROM 'favouriteMovie'");
+    List<Map> response = await sqlDb.readData(
+      sql: "SELECT * FROM 'favouriteMovie'",
+    );
     favouriteItems = MovieModel.fromJsonListMovies(response);
 
     notifyListeners();

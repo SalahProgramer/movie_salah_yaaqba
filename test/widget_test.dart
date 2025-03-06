@@ -12,7 +12,7 @@ import 'package:movie_salah_yaaqba/view/movie_app.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget( MovieApp());
+    await tester.pumpWidget(MovieApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

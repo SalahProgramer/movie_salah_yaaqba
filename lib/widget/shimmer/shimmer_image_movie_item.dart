@@ -3,8 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ShimmerImageMovieItem extends StatelessWidget {
-  const ShimmerImageMovieItem(
-      {super.key, this.height, this.width, this.borderRadius});
+  const ShimmerImageMovieItem({
+    super.key,
+    this.height,
+    this.width,
+    this.borderRadius,
+  });
 
   final double? height;
   final double? width;
@@ -18,8 +22,9 @@ class ShimmerImageMovieItem extends StatelessWidget {
       child: Container(
         width: width ?? double.maxFinite,
         decoration: BoxDecoration(
-            color: Colors.grey[300],
-            borderRadius: borderRadius ?? BorderRadius.circular(20.r)),
+          color: Colors.grey[300],
+          borderRadius: borderRadius ?? BorderRadius.circular(20.r),
+        ),
       ),
     );
   }

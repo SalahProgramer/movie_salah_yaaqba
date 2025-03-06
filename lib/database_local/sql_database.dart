@@ -16,11 +16,12 @@ class SqlDb {
   Future<Database> initialDb() async {
     String databasePath = await getDatabasesPath();
     String path = join(databasePath, "movieV1.0.db");
-    Database movieDb = await openDatabase(path,
-        onCreate: onCreate,
-        onUpgrade: (db, oldVersion, newVersion) {},
-        version:
-            1);
+    Database movieDb = await openDatabase(
+      path,
+      onCreate: onCreate,
+      onUpgrade: (db, oldVersion, newVersion) {},
+      version: 1,
+    );
     return movieDb;
   }
 
@@ -50,8 +51,7 @@ class SqlDb {
   //insert_data
   Future<int> insertData({required String sql}) async {
     Database? movieDb = await database;
-    int response = await movieDb!.rawInsert(
-        sql);
+    int response = await movieDb!.rawInsert(sql);
     return response;
   }
 
@@ -59,8 +59,7 @@ class SqlDb {
   //delete_data
   Future<int> deleteData({required String sql}) async {
     Database? movieDb = await database;
-    int response = await movieDb!.rawDelete(
-        sql);
+    int response = await movieDb!.rawDelete(sql);
     return response;
   }
 
@@ -68,9 +67,7 @@ class SqlDb {
   //update_data
   Future<int> updateData({required String sql}) async {
     Database? movieDb = await database;
-    int response = await movieDb!.rawUpdate(
-        sql);
+    int response = await movieDb!.rawUpdate(sql);
     return response;
   }
 }
-

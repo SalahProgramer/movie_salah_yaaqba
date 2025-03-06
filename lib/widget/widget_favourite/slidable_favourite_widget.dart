@@ -9,14 +9,16 @@ class SlidableFavouriteWidget extends StatefulWidget {
   final int index;
   final void Function()? onPressed;
 
-  const SlidableFavouriteWidget(
-      {super.key,
-      required this.card,
-      required this.index,
-      required this.onPressed});
+  const SlidableFavouriteWidget({
+    super.key,
+    required this.card,
+    required this.index,
+    required this.onPressed,
+  });
 
   @override
-  State<SlidableFavouriteWidget> createState() => _SlidableFavouriteWidgetState();
+  State<SlidableFavouriteWidget> createState() =>
+      _SlidableFavouriteWidgetState();
 }
 
 class _SlidableFavouriteWidgetState extends State<SlidableFavouriteWidget> {
@@ -24,10 +26,11 @@ class _SlidableFavouriteWidgetState extends State<SlidableFavouriteWidget> {
   Widget build(BuildContext context) {
     return TweenAnimationBuilder(
       duration: Duration(milliseconds: ((((widget.index) * 4) + 100))),
-      builder: (context, value, child) => Transform.translate(
-        offset: Offset(value * 200 - 100, 0),
-        child: child,
-      ),
+      builder:
+          (context, value, child) => Transform.translate(
+            offset: Offset(value * 200 - 100, 0),
+            child: child,
+          ),
       tween: Tween(begin: -1, end: 0.5),
       child: Container(
         margin: EdgeInsets.all(4.w),
@@ -40,27 +43,23 @@ class _SlidableFavouriteWidgetState extends State<SlidableFavouriteWidget> {
               SizedBox(
                 width: 80.w,
                 child: FloatingActionButton(
-                    elevation: 0.5,
-                    // isExtended: true,
-                    shape: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
-                        borderRadius: BorderRadius.circular(10.r)),
-                    backgroundColor: Colors.red,
-                    onPressed: widget.onPressed ?? () {},
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          CupertinoIcons.delete,
-                          color: Colors.white,
-                        ),
-                        Text(
-                          "Delete",
-                          style: TextStyle(color: Colors.white),
-                        )
-                      ],
-                    )),
-              )
+                  elevation: 0.5,
+                  // isExtended: true,
+                  shape: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.circular(10.r),
+                  ),
+                  backgroundColor: Colors.red,
+                  onPressed: widget.onPressed ?? () {},
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(CupertinoIcons.delete, color: Colors.white),
+                      Text("Delete", style: TextStyle(color: Colors.white)),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
           child: widget.card,
