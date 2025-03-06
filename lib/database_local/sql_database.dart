@@ -20,7 +20,7 @@ class SqlDb {
         onCreate: onCreate,
         onUpgrade: (db, oldVersion, newVersion) {},
         version:
-            1); //the version we do change to any update in do update in create database
+            1);
     return movieDb;
   }
 
@@ -51,7 +51,7 @@ class SqlDb {
   Future<int> insertData({required String sql}) async {
     Database? movieDb = await database;
     int response = await movieDb!.rawInsert(
-        sql); //return the integer the raw (if 0 mean failed the mission  else 1 is success)
+        sql);
     return response;
   }
 
@@ -60,7 +60,7 @@ class SqlDb {
   Future<int> deleteData({required String sql}) async {
     Database? movieDb = await database;
     int response = await movieDb!.rawDelete(
-        sql); //return the integer the raw (if 0 mean failed the mission  else 1 is success)
+        sql);
     return response;
   }
 
@@ -69,7 +69,7 @@ class SqlDb {
   Future<int> updateData({required String sql}) async {
     Database? movieDb = await database;
     int response = await movieDb!.rawUpdate(
-        sql); //return the integer the raw   (if 0 mean failed the mission  else 1 is success)
+        sql);
     return response;
   }
 }
