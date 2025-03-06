@@ -133,6 +133,8 @@ class _CustomTextFieldState extends State<CustomTextFormField> {
               borderRadius: BorderRadius.circular(12.r),
               borderSide: const BorderSide(color: Colors.transparent)),
           prefixIcon: widget.prefixIcon,
+
+
          ),
     );
   }

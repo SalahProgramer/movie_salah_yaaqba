@@ -6,8 +6,9 @@ class NavigatorApp {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   static BuildContext context = navigatorKey.currentState!.context;
 
-  static ScaffoldMessengerState scaffoldMessenger =
-      ScaffoldMessenger.of(context);
+  static ScaffoldMessengerState scaffoldMessenger = ScaffoldMessenger.of(
+    context,
+  );
 
   static pop() {
     if (navigatorKey.currentState!.canPop()) {
@@ -16,28 +17,32 @@ class NavigatorApp {
   }
 
   static pushName(String routeName) {
-    return navigatorKey.currentState!.pushNamed(
-      routeName,
-    );
+    return navigatorKey.currentState!.pushNamed(routeName);
   }
 
   static pushHaveArguments({required String routeName, Object? arguments}) {
-    return navigatorKey.currentState!
-        .pushNamed(routeName, arguments: arguments);
+    return navigatorKey.currentState!.pushNamed(
+      routeName,
+      arguments: arguments,
+    );
   }
 
   static push(Widget widget) {
-    return navigatorKey.currentState!
-        .push(MaterialPageRoute(builder: (context) => widget));
+    return navigatorKey.currentState!.push(
+      MaterialPageRoute(builder: (context) => widget),
+    );
   }
 
-  static pushAnimation(Widget widget) {
-    return navigatorKey.currentState!.push(Animations(page: widget));
+  static pushAnimation(Widget widget, Offset? offsetBegin) {
+    return navigatorKey.currentState!.push(
+      Animations(page: widget, offsetBegin: offsetBegin),
+    );
   }
 
   static pushReplacement(Widget widget) {
-    return navigatorKey.currentState!
-        .pushReplacement(MaterialPageRoute(builder: (context) => widget));
+    return navigatorKey.currentState!.pushReplacement(
+      MaterialPageRoute(builder: (context) => widget),
+    );
   }
 
   static pushAndRemoveUntil(Widget widget) {

@@ -18,10 +18,15 @@ class CustomText extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         text,
+        maxLines: 2,
         style: CustomTextStyle().rubik.copyWith(
           fontSize: fontSize??19.sp,
           fontWeight: FontWeight.bold,
+          overflow: TextOverflow.ellipsis,
+
+
           color: color??CustomColor.blueColor,
+
         ),
         textAlign: TextAlign.center,
       ),

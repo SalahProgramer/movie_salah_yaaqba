@@ -18,7 +18,7 @@ class _StartScreenState extends State<StartScreen> {
   void initState() {
 WidgetsBinding.instance.addPostFrameCallback((_)async{
 
-  NavigatorApp.pushAndRemoveUntil(HomeMoviesList());
+  NavigatorApp.pushAndRemoveUntil(SearchMovies());
   
 });
     super.initState();

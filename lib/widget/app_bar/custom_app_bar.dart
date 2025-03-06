@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_salah_yaaqba/utilities/global/app_global.dart';
+import 'package:movie_salah_yaaqba/widget/lottie/lottie_widget.dart';
 
 import '../../utilities/style/text_style.dart';
 
@@ -8,7 +10,7 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final Color? colorWidgets;
   final Color? backgroundColor;
   final String title;
-  final String textLeading;
+  final String textNameLottie;
   final List<Widget>? actions;
   @override
   final Size preferredSize;
@@ -18,7 +20,7 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
     this.shadowColor,
     this.colorWidgets,
     required this.title,
-    required this.textLeading,
+    required this.textNameLottie,
     this.actions,
     this.backgroundColor,
   }) : preferredSize = Size.fromHeight(50.h);
@@ -37,7 +39,6 @@ class _CustomAppBarState extends State<CustomAppBar> {
         borderRadius: BorderRadius.only(
           bottomRight: Radius.circular(15.r),
           bottomLeft: Radius.circular(15.r),
-
         ),
       ),
       shadowColor: widget.shadowColor ?? Colors.black87,
@@ -55,19 +56,26 @@ class _CustomAppBarState extends State<CustomAppBar> {
           ),
         ),
       ),
-      // leading: Padding(
-      //   padding: EdgeInsets.only(top: 8.h),
-      //   child: Align(
-      //     alignment: Alignment.center,
-      //     child: CustomTextButton(
-      //         text: widget.textButton,
-      //         textStyle: CustomTextStyle().heading1L.copyWith(
-      //             fontSize: 14.sp,
-      //             color: widget.colorWidgets ?? Colors.black,
-      //             fontWeight: FontWeight.bold),
-      //         onPressed: widget.onPressed),
-      //   ),
-      // ),
+      leading:
+          (widget.textNameLottie != "")
+              ? InkWell(
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            overlayColor: WidgetStateColor.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () {
+              NavigatorApp.pop();
+            },
+                child: Padding(
+                  padding: EdgeInsets.only(top: 8.h),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: LottieWidget(name: widget.textNameLottie),
+                  ),
+                ),
+              )
+              : null,
       actions: widget.actions ?? [],
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:movie_salah_yaaqba/utilities/global/app_global.dart';
 import 'package:movie_salah_yaaqba/utilities/validations/validation.dart';
 import 'package:movie_salah_yaaqba/view/movies/movies_list.dart';
@@ -8,26 +9,38 @@ import 'package:movie_salah_yaaqba/widget/lottie/lottie_widget.dart';
 import 'package:movie_salah_yaaqba/widget/text/custom_text.dart';
 import 'package:provider/provider.dart';
 
+import '../../controller/favourite_controller.dart';
 import '../../controller/search_controller.dart';
-import '../../dialog/dialog_waiting.dart';
 import '../../utilities/style/colors.dart';
 import '../../widget/button/custom_button.dart';
 import '../../widget/text_field/custom_text_field.dart';
+import 'favourite_page.dart';
 
-class HomeMoviesList extends StatefulWidget {
-  const HomeMoviesList({super.key});
+class SearchMovies extends StatefulWidget {
+  const SearchMovies({super.key});
 
   @override
-  State<HomeMoviesList> createState() => _HomeMoviesListState();
+  State<SearchMovies> createState() => _SearchMoviesState();
 }
 
-class _HomeMoviesListState extends State<HomeMoviesList> {
+class _SearchMoviesState extends State<SearchMovies> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      FavouriteController favouriteController =
+          context.read<FavouriteController>();
+      favouriteController.getFavouriteMovies();
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     PageSearchController pageSearchController =
         context.watch<PageSearchController>();
+
     return PopScope(
       canPop: false,
       child: GestureDetector(
@@ -38,9 +51,20 @@ class _HomeMoviesListState extends State<HomeMoviesList> {
           backgroundColor: Colors.white.withValues(alpha: 0.93),
           appBar: CustomAppBar(
             title: "Search Movies",
-            textLeading: "",
+            textNameLottie: "",
             backgroundColor: CustomColor.blueColor,
-
+            actions: [
+              Padding(
+                padding: EdgeInsets.only(right: 16.w, top: 8.h),
+                child: InkWell(
+                  overlayColor: WidgetStatePropertyAll(Colors.transparent),
+                  onTap: () {
+                    NavigatorApp.pushAnimation(FavouritePage(), Offset(0, 1));
+                  },
+                  child: Icon(FontAwesome.heart, color: Colors.white),
+                ),
+              ),
+            ],
             colorWidgets: Colors.white,
           ),
 
@@ -94,6 +118,7 @@ class _HomeMoviesListState extends State<HomeMoviesList> {
                         hasFocusBorder: false,
                       ),
                     ),
+
                     SizedBox(height: 30.h),
 
                     Container(
@@ -109,19 +134,18 @@ class _HomeMoviesListState extends State<HomeMoviesList> {
                             (pageSearchController.text == "")
                                 ? null
                                 : () async {
-                          FocusScope.of(context).unfocus();
+                                  FocusScope.of(context).unfocus();
+                                  await Future.delayed(
+                                    Duration(milliseconds: 200),
+                                  );
                                   if (formKey.currentState!.validate()) {
                                     // dialogWaiting();
-
-
-
-
-                                    NavigatorApp.pushAnimation(MoviesList());
-                                  } else {
-
-
-
-                                  }
+                                    await pageSearchController.clear();
+                                    NavigatorApp.pushAnimation(
+                                      MoviesList(),
+                                      Offset(-1, 0),
+                                    );
+                                  } else {}
                                 },
                       ),
                     ),

@@ -24,7 +24,7 @@ class MovieModel {
 
   }
 
-  static List<MovieModel> fromJsonListImagesCategory(List<dynamic> jsonList) {
+  static List<MovieModel> fromJsonListMovies(List<dynamic> jsonList) {
     return jsonList.map((json) => MovieModel.fromJson(json)).toList();
   }
 
