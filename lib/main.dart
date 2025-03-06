@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:movie_salah_yaaqba/utilities/providers.dart';
-import 'package:movie_salah_yaaqba/view/movie_app.dart';
+import 'package:movie_salah_yaaqba/main/movie_app.dart';
 import 'package:provider/provider.dart';
 
 void main() {

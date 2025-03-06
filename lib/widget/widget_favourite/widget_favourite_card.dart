@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_salah_yaaqba/controller/Page_movie_details_controller.dart';
 import 'package:movie_salah_yaaqba/model/movie_model.dart';
 import 'package:movie_salah_yaaqba/widget/image/custom_image_movie_item.dart';
 import 'package:movie_salah_yaaqba/widget/widget_favourite/slidable_favourite_widget.dart';
+import 'package:provider/provider.dart';
 import '../../dialog/dialog_delete_favourite_item.dart';
+import '../../utilities/global/app_global.dart';
 import '../../utilities/style/colors.dart';
 import '../../utilities/style/text_style.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../../view/movies/movie_description.dart';
 import '../messages/messages.dart';
 
 class WidgetFavouriteCard extends StatefulWidget {
@@ -27,11 +31,16 @@ class WidgetFavouriteCard extends StatefulWidget {
 class _WidgetFavouriteCardState extends State<WidgetFavouriteCard> {
   @override
   Widget build(BuildContext context) {
+    PageMovieDetailsController pageMovieDetailsController =
+        context.watch<PageMovieDetailsController>();
     return InkWell(
       highlightColor: Colors.transparent,
       focusColor: Colors.transparent,
       overlayColor: WidgetStateColor.transparent,
-      onTap: () {},
+      onTap: () async {
+        await pageMovieDetailsController.clear();
+        NavigatorApp.push(MovieDescription(movieItem: widget.favouriteItem));
+      },
       child: SlidableFavouriteWidget(
         index: widget.index,
         card: Padding(
@@ -84,12 +93,15 @@ class _WidgetFavouriteCardState extends State<WidgetFavouriteCard> {
                 child: Stack(
                   alignment: Alignment.topRight,
                   children: [
-                    CustomImageMovieItem(
-                      imageUrl: widget.favouriteItem.poster ?? "",
-                      height: 100.h,
-                      boxFit: BoxFit.fill,
-                      borderCircle: 10.r,
-                      borderRadius: BorderRadius.circular(10.r),
+                    Hero(
+                      tag: widget.favouriteItem.imdbID.toString(),
+                      child: CustomImageMovieItem(
+                        imageUrl: widget.favouriteItem.poster ?? "",
+                        height: 100.h,
+                        boxFit: BoxFit.fill,
+                        borderCircle: 10.r,
+                        borderRadius: BorderRadius.circular(10.r),
+                      ),
                     ),
                   ],
                 ),

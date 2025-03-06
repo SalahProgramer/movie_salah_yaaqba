@@ -11,7 +11,6 @@ import 'package:provider/provider.dart';
 
 import '../../controller/favourite_controller.dart';
 import '../../controller/search_controller.dart';
-import '../../utilities/style/colors.dart';
 import '../../widget/button/custom_button.dart';
 import '../../widget/text_field/custom_text_field.dart';
 import 'favourite_page.dart';
@@ -52,7 +51,7 @@ class _SearchMoviesState extends State<SearchMovies> {
           appBar: CustomAppBar(
             title: "Search Movies",
             textNameLottie: "",
-            backgroundColor: CustomColor.blueColor,
+            backgroundColor: Colors.black,
             actions: [
               Padding(
                 padding: EdgeInsets.only(right: 16.w, top: 8.h),
@@ -82,17 +81,21 @@ class _SearchMoviesState extends State<SearchMovies> {
                       image: const AssetImage("assets/images/nabeeh_movie.png"),
                       width: 0.5.sw,
 
-                      height: 0.22.sh,
+                      height: 0.20.sh,
 
                       // 90% of screen width
                       fit: BoxFit.contain,
                     ),
                     SizedBox(height: 20.h),
-                    CustomText(
-                      text:
-                          "Discover and Explore: Your Ultimate Guide to Finding the Perfect Movie",
+                    Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: 8.w),
+                      child: CustomText(
+                        text:
+                            "Search the perfect movie for any mood",
+
+                      ),
                     ),
-                    SizedBox(height: 40.h),
+                    SizedBox(height: 20.h),
 
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 4.w),
@@ -148,7 +151,7 @@ class _SearchMoviesState extends State<SearchMovies> {
                         text: 'Search',
                         textIcon: '',
                         hasBackground: true,
-                        backgroundColor: CustomColor.blueColor,
+                        backgroundColor: Colors.black,
                         padding: EdgeInsets.symmetric(vertical: 10.w),
                         onPressed:
                             (pageSearchController.text == "")

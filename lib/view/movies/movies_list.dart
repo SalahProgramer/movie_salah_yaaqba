@@ -56,7 +56,7 @@ class _MoviesListState extends State<MoviesList> {
         textNameLottie: "Back.json",
         backgroundColor: Colors.transparent,
 
-        colorWidgets: CustomColor.blueColor,
+        colorWidgets: Colors.black,
       ),
       body: SafeArea(
         child: Column(
@@ -86,19 +86,10 @@ class _MoviesListState extends State<MoviesList> {
                                         .toString(),
                               );
 
-                          return InkWell(
-                            hoverColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            overlayColor: WidgetStatePropertyAll(
-                              Colors.transparent,
-                            ),
-                            onTap: () async {},
-                            child: WidgetMovieItem(
-                              favourite: favourite,
-                              index: index,
-                              movieItem: pageSearchController.movieList[index],
-                            ),
+                          return WidgetMovieItem(
+                            favourite: favourite,
+                            index: index,
+                            movieItem: pageSearchController.movieList[index],
                           );
                         },
                         scrollController: scrollController,

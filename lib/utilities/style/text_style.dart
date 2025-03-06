@@ -23,6 +23,12 @@ class CustomTextStyle {
     color: Colors.black,
   );
 
+  TextStyle lobster = TextStyle(
+    fontFamily: "Lobster",
+    fontSize: 15.sp,
+    color: Colors.black,
+  );
+
   TextStyle crimson = TextStyle(
     fontFamily: 'CrimsonText',
     fontSize: 15.sp,

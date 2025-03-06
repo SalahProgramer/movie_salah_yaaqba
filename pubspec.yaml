@@ -59,7 +59,9 @@ flutter:
     - family: Chewy
       fonts:
         - asset: assets/fonts/Chewy/Chewy-Regular.ttf
-
+    - family: Lobster
+      fonts:
+        - asset: assets/fonts/Lobster/Lobster-Regular.ttf
     - family: Vollkorn
       fonts:
         - asset: assets/fonts/Vollkorn/Vollkorn-Italic-VariableFont_wght.ttf

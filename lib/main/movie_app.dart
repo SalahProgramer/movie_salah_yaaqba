@@ -37,6 +37,7 @@ class _MovieAppState extends State<MovieApp> {
                           breakpoints: [
                             const Breakpoint(start: 0, end: 450, name: MOBILE),
                             const Breakpoint(
+
                               start: 451,
                               end: 800,
                               name: TABLET,

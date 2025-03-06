@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:movie_salah_yaaqba/model/movie_model.dart';
-import '../service/api/api_search_movie.dart';
+import '../service/api/api_movie.dart';
 import '../utilities/global/app_global.dart';
 import 'favourite_controller.dart';
 import 'package:provider/provider.dart';
@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 class PageSearchController extends ChangeNotifier {
   TextEditingController textSearch = TextEditingController();
   String text = "";
-  ApiSearchMovie apiSearchMovie = ApiSearchMovie();
+  ApiMovie apiSearchMovie = ApiMovie();
   int numberPage = 1;
   List<MovieModel> movieList = [];
   bool haveMoreData = true;
