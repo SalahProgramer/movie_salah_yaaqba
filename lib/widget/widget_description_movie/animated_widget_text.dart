@@ -33,8 +33,8 @@ class AnimatedWidgetMovie extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    PageMovieDetailsController pageMovieDetailsController =
-        context.watch<PageMovieDetailsController>();
+    MovieDetailsController pageMovieDetailsController =
+        context.watch<MovieDetailsController>();
     return Flexible(
       child: Padding(
         padding: padding ?? const EdgeInsets.all(0.0),

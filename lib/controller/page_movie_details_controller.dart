@@ -4,7 +4,7 @@ import 'package:movie_salah_yaaqba/model/movie_details_model.dart';
 
 import '../service/api/api_movie.dart';
 
-class PageMovieDetailsController extends ChangeNotifier {
+class MovieDetailsController extends ChangeNotifier {
   ApiMovie apiDetailsMovie = ApiMovie();
   MovieDetailsModel? movieDetails;
 

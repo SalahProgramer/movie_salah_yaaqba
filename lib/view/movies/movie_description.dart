@@ -9,7 +9,7 @@ import 'package:shimmer/shimmer.dart';
 import '../../controller/page_movie_details_controller.dart';
 import '../../model/movie_model.dart';
 import '../../utilities/style/text_style.dart';
-import '../../widget/widget_description_movie/animated_widget_Text.dart';
+import '../../widget/widget_description_movie/animated_widget_text.dart';
 import '../../widget/widget_description_movie/bottom_widget_in_image.dart';
 import '../../widget/widget_description_movie/top_widget_in_image.dart';
 
@@ -26,8 +26,8 @@ class _MovieDescriptionState extends State<MovieDescription> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      PageMovieDetailsController pageMovieDetailsController =
-          context.read<PageMovieDetailsController>();
+      MovieDetailsController pageMovieDetailsController =
+          context.read<MovieDetailsController>();
       await pageMovieDetailsController.getDataMovieDetails(
         imdbID: widget.movieItem.imdbID.toString(),
       );
@@ -38,8 +38,8 @@ class _MovieDescriptionState extends State<MovieDescription> {
 
   @override
   Widget build(BuildContext context) {
-    PageMovieDetailsController pageMovieDetailsController =
-        context.watch<PageMovieDetailsController>();
+    MovieDetailsController pageMovieDetailsController =
+        context.watch<MovieDetailsController>();
 
 
     Map<String, String> listDescription = {

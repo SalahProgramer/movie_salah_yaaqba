@@ -39,7 +39,7 @@ class _WidgetMovieItemState extends State<WidgetMovieItem> {
 
     PageSearchController pageSearchController =
         context.watch<PageSearchController>();
-    PageMovieDetailsController pageMovieDetailsController=context.watch<PageMovieDetailsController>();
+    MovieDetailsController pageMovieDetailsController=context.watch<MovieDetailsController>();
     return InkWell(
       hoverColor: Colors.transparent,
       focusColor: Colors.transparent,

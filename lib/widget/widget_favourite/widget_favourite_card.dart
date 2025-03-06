@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_salah_yaaqba/controller/Page_movie_details_controller.dart';
+import 'package:movie_salah_yaaqba/controller/page_movie_details_controller.dart';
 import 'package:movie_salah_yaaqba/model/movie_model.dart';
 import 'package:movie_salah_yaaqba/widget/image/custom_image_movie_item.dart';
 import 'package:movie_salah_yaaqba/widget/widget_favourite/slidable_favourite_widget.dart';
@@ -32,14 +32,13 @@ class WidgetFavouriteCard extends StatefulWidget {
 class _WidgetFavouriteCardState extends State<WidgetFavouriteCard> {
   @override
   Widget build(BuildContext context) {
-    PageMovieDetailsController pageMovieDetailsController =
-        context.watch<PageMovieDetailsController>();
+MovieDetailsController movieDetailsController=context.watch<MovieDetailsController>();
     return InkWell(
       highlightColor: Colors.transparent,
       focusColor: Colors.transparent,
       overlayColor: WidgetStateColor.transparent,
       onTap: () async {
-        await pageMovieDetailsController.clear();
+        await movieDetailsController.clear();
         NavigatorApp.push(MovieDescription(movieItem: widget.favouriteItem));
       },
       child: SlidableFavouriteWidget(
@@ -58,23 +57,9 @@ class _WidgetFavouriteCardState extends State<WidgetFavouriteCard> {
         },
       ),
     );
+
   }
 
-  Widget text({required String name, Color? color, double? size}) {
-    return Flexible(
-      child: Text(
-        name,
-        textDirection: TextDirection.rtl,
-        maxLines: 2,
-        overflow: TextOverflow.ellipsis,
-        style: CustomTextStyle().rubik.copyWith(
-          fontWeight: FontWeight.bold,
-          color: color ?? CustomColor.blueColor,
-          fontSize: size ?? 14.sp,
-        ),
-      ),
-    );
-  }
 
   Widget card(BuildContext context, MovieModel item) {
     return Card(
@@ -175,4 +160,20 @@ class _WidgetFavouriteCardState extends State<WidgetFavouriteCard> {
       ),
     );
   }
+  Widget text({required String name, Color? color, double? size}) {
+    return Flexible(
+      child: Text(
+        name,
+        textDirection: TextDirection.rtl,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+        style: CustomTextStyle().rubik.copyWith(
+          fontWeight: FontWeight.bold,
+          color: color ?? CustomColor.blueColor,
+          fontSize: size ?? 14.sp,
+        ),
+      ),
+    );
+  }
+
 }

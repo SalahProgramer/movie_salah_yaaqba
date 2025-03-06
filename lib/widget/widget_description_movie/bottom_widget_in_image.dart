@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../model/movie_model.dart';
-import 'animated_widget_Text.dart';
+import 'animated_widget_text.dart';
 import 'favourite_icon.dart';
 
 class BottomWidgetInImage extends StatelessWidget {
